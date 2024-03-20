@@ -6,6 +6,7 @@ import { useMemo, useState, useEffect } from 'react';
 import AuthService from '../services/api/AuthService';
 import BAlert from '../components/common/BAlert';
 import SessionService from '../services/SessionService';
+import TextField from '../components/common/forms/TextField';
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>('');
@@ -63,7 +64,7 @@ const LoginPage = () => {
               </FormControl>
               <FormControl>
                 <FormLabel mt={2}>Contraseña</FormLabel>
-                <Input
+                <TextField
                   type='password'
                   boxShadow='sm'
                   variant={'filled'}

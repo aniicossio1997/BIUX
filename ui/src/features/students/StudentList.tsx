@@ -34,9 +34,9 @@ const StudentList = () => {
   const [searchInputValue, setSearchInputValue] = useState<string>(searchText);
 
   const filteredStudents = useMemo(() => {
-    if (!searchText) return students;
+    if (!searchText) return students.sort((a,b)=> b.id - a.id);
     const sanitized = searchText.toLowerCase();
-    return students.filter((u) => [u.email, u.firstName,u.lastName].find((v) => v?.toLowerCase().includes(sanitized)));
+    return students.filter((u) => [u.email, u.firstName,u.lastName].find((v) => v?.toLowerCase().includes(sanitized))).sort((a,b)=> b.id - a.id);
   }, [students, searchText]);
 
   const pagination = usePagination(filteredStudents, 5, page, onPageChange);
